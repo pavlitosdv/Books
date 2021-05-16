@@ -9,4 +9,16 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Models\DataLayer\Repositories\" />
+    <Folder Include="Models\DataLayer\SeedData\" />
+    <Folder Include="Models\DTOs\" />
+    <Folder Include="Models\ExtensionMethods\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Views\Author\" />
+    <Folder Include="Views\Book\" />
+    <Folder Include="Views\Cart\" />
+  </ItemGroup>
+
 </Project>
