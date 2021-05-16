@@ -23,7 +23,11 @@ namespace Books
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddMemoryCache();
+            services.AddSession();
+
+            services.AddControllersWithViews().AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,14 +47,32 @@ namespace Books
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoint to map to the Area
+                endpoints.MapAreaControllerRoute(
+                     name: "admin",
+                     areaName: "Admin",
+                     pattern: "Admin/{controller=Book}/{action=Index}/{id?}");
+
+                //paging, sorting, filtering
+                endpoints.MapControllerRoute(
+                  name: "",
+                  pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}/filter/{author}/{genre}/{price}");
+
+                //paging and sorting
+                endpoints.MapControllerRoute(
+                  name: "",
+                  pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}");
+
+                // added the slug parameter to the default route
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}");
             });
         }
     }
