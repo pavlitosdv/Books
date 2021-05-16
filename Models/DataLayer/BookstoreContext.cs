@@ -1,4 +1,5 @@
-﻿using Books.Models.DomainModels;
+﻿using Books.Models.DataLayer.SeedData;
+using Books.Models.DomainModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,12 @@ namespace Books.Models.DataLayer
               .WithMany(g => g.Books)
               .OnDelete(DeleteBehavior.Restrict);
 
+
+            //seeding the Model entities
+            modelBuilder.ApplyConfiguration(new SeedGenres());
+            modelBuilder.ApplyConfiguration(new SeedBooks());
+            modelBuilder.ApplyConfiguration(new SeedAuthors());
+            modelBuilder.ApplyConfiguration(new SeedBookAuthors());
         }
     }
 }
