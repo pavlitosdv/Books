@@ -40,7 +40,6 @@ namespace Books.Models.DataLayer.SeedData
               new Book { BookId = 25, Title = "The Year of Magical Thinking", GenreId = "memoir", Price = 13.50 },
               new Book { BookId = 26, Title = "Wuthering Heights", GenreId = "novel", Price = 9.00 },
               new Book { BookId = 27, Title = "Running With Scissors", GenreId = "memoir", Price = 11.00 },
-              new Book { BookId = 27, Title = "Running With Scissors", GenreId = "memoir", Price = 11.00 },
               new Book { BookId = 28, Title = "Pride and Prejudice and Zombies", GenreId = "novel", Price = 8.75 },
               new Book { BookId = 29, Title = "Harry Potter and the Sorcerer's Stone", GenreId = "novel", Price = 9.75 }
               );

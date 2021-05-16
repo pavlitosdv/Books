@@ -49,7 +49,7 @@ namespace Books.Models.DataLayer
             modelBuilder.ApplyConfiguration(new SeedGenres());
             modelBuilder.ApplyConfiguration(new SeedBooks());
             modelBuilder.ApplyConfiguration(new SeedAuthors());
-            modelBuilder.ApplyConfiguration(new SeedBookAuthors());
+            modelBuilder.ApplyConfiguration(new SeedBookAuthors());           
         }
     }
 }

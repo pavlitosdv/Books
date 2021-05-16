@@ -8,6 +8,7 @@ namespace Books.Models.DomainModels
 {
     public class Book
     {
+        [Key]
         public int BookId { get; set; }
 
         [Required(ErrorMessage = "Please enter title")]

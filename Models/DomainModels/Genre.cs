@@ -8,6 +8,7 @@ namespace Books.Models.DomainModels
 {
     public class Genre
     {
+        [Key]
         [MaxLength(10)]
         [Required(ErrorMessage = "Please enter genre id")]
         public string GenreId { get; set; }
